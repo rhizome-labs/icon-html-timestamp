@@ -11,10 +11,6 @@ from iconsdk.providers.http_provider import HTTPProvider
 #Get ICONex wallet variables
 keystore_location = input("What is the file path of your keystore file? ")
 keystore_password = input("What is your keystore password? ")
-
-#keystore_location = "/Users/iconkeystore "
-#keystore_password = "@icon111"
-
 keystore_location_str = keystore_location.rstrip()
 keystore_password_str = keystore_password.rstrip()
 
@@ -46,7 +42,6 @@ if tx_message_length > 509950:
 elif tx_message_length <= 509950:
 	#print("This is a valid ICX transaction!")
 	wallet = KeyWallet.load(keystore_location_str, keystore_password_str)
-	#@icon111
 	#Build ICX transaction
 	transaction = MessageTransactionBuilder()\
     		.from_(wallet.get_address())\
