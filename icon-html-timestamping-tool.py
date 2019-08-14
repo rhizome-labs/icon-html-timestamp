@@ -1,6 +1,5 @@
 import datetime
 import iconsdk
-import random
 import requests
 from iconsdk.wallet.wallet import KeyWallet
 from iconsdk.builder.transaction_builder import (TransactionBuilder, DeployTransactionBuilder, CallTransactionBuilder, MessageTransactionBuilder)
@@ -65,7 +64,6 @@ elif tx_message_length <= 509950:
 		.step_limit(100000000)\
 		.data("0x" + tx_message)\
 		.nid(1)\
-		.nonce(random.randint(1,999))\
 		.build()
 	icon_service = IconService(HTTPProvider("https://wallet.icon.foundation/api/v3"))
 	signed_transaction = SignedTransaction(transaction, wallet)
