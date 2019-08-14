@@ -2,11 +2,26 @@ import datetime
 import iconsdk
 import random
 import requests
+import sys
 from iconsdk.wallet.wallet import KeyWallet
 from iconsdk.builder.transaction_builder import (TransactionBuilder, DeployTransactionBuilder, CallTransactionBuilder, MessageTransactionBuilder)
 from iconsdk.signed_transaction import SignedTransaction
 from iconsdk.icon_service import IconService
 from iconsdk.providers.http_provider import HTTPProvider
+
+#Get URL info
+url = input("What URL would you like to timestamp? (e.g. https://rhizomeicx.com) ")
+headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+response = requests.get(url)
+
+if response.status_code == 404:
+    url = input("404 error! Please provide a valid URL. ")
+elif response.status_code == 403:
+	url = input("403 error! Please provide a valid URL. ")
+elif response.status_code == 502:
+	url = input("502 error! Please provide a valid URL. ")
+elif response.status_code == 504:
+	url = input("504 error! Please provide a valid URL. ")
 
 #Get ICONex wallet variables
 keystore_location = input("What is the file path of your keystore file? ")
@@ -14,18 +29,9 @@ keystore_password = input("What is your keystore password? ")
 keystore_location_str = keystore_location.rstrip()
 keystore_password_str = keystore_password.rstrip()
 
-#print(keystore_location)
-#print(keystore_location_str)
-
 #Create data and time formatting
 date = datetime.datetime.utcnow()
 utc_datetime = date.strftime("%Y-%m-%d %H:%M:%S")
-
-#Set URL to scrape
-url = input("What URL would you like to timestamp? (e.g. https://rhizomeicx.com) ")
-
-#Set HTML headers
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 
 #Scrape URL
 page = requests.get(url, headers=headers)
@@ -35,6 +41,8 @@ html_hex = html.encode("utf-8").hex()
 info_hex = info.encode("utf-8").hex()
 tx_message = info_hex + html_hex
 tx_message_length = len(tx_message)
+
+#Error Codes
 
 #Create ICX transaction
 if tx_message_length > 509950:
