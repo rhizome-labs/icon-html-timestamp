@@ -1,6 +1,6 @@
-###############################
-#ProofOfRecord v0.1 by RHIZOME#
-###############################
+#################################
+# ProofOfRecord v0.1 by RHIZOME #
+#################################
 
 import datetime
 import iconsdk
