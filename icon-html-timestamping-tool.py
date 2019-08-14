@@ -1,5 +1,7 @@
-#RHIZOME ProofOfRecord v0.1 by @DecryptoBL
-import click
+###############################
+#ProofOfRecord v0.1 by RHIZOME#
+###############################
+
 import datetime
 import iconsdk
 import requests
@@ -46,12 +48,7 @@ header = "This timestamp of " + str(url) + " was taken at " + str(utc_datetime) 
 header_hex = header.encode("utf-8").hex()
 footer = "\n\nTimestamped with ProofOfRecord v0.1 by RHIZOME - https://bit.ly/2Z4Dd8C"
 footer_hex = footer.encode("utf-8").hex()
-
-#Check if user would like to credit RHIZOME below timestamped HTML
-if click.confirm("Would you like to credit RHIZOME below your timestamped HTML?", default=True):
-    tx_message = header_hex + html_hex + footer_hex
-else:
-	tx_message = header_hex + html_hex
+tx_message = header_hex + html_hex + footer_hex
 
 #Calculate transaction message length
 tx_message_length = len(tx_message)
