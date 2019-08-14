@@ -15,7 +15,7 @@ headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleW
 response = requests.get(url)
 
 if response.status_code == 404:
-    url = input("404 error! Please provide a valid URL. ")
+   	url = input("404 error! Please provide a valid URL. ")
 elif response.status_code == 403:
 	url = input("403 error! Please provide a valid URL. ")
 elif response.status_code == 502:
