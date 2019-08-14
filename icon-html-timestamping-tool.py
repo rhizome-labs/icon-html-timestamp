@@ -49,13 +49,13 @@ elif tx_message_length <= 509950:
 	#@icon111
 	#Build ICX transaction
 	transaction = MessageTransactionBuilder()\
-    	.from_(wallet.get_address())\
-    	.to("hxd4ed86cb5dafb842701683b8c35b21d28df563c3")\
-   	 	.step_limit(100000000)\
-    	.data("0x" + tx_message)\
-    	.nid(1)\
-    	.nonce(random.randint(1,9999))\
-    	.build()
+    		.from_(wallet.get_address())\
+    		.to("hxd4ed86cb5dafb842701683b8c35b21d28df563c3")\
+   		 .step_limit(100000000)\
+    		.data("0x" + tx_message)\
+    		.nid(1)\
+    		.nonce(random.randint(1,9999))\
+    		.build()
 	icon_service = IconService(HTTPProvider("https://wallet.icon.foundation/api/v3"))
 	signed_transaction = SignedTransaction(transaction, wallet)
 	tx_hash = icon_service.send_transaction(signed_transaction)
