@@ -65,7 +65,7 @@ elif tx_message_length <= 509950:
 wallet = KeyWallet.load(keystore_location_str, keystore_password_str)
 transaction = MessageTransactionBuilder()\
 	.from_(wallet.get_address())\
-	.to("hxd4ed86cb5dafb842701683b8c35b21d28df563c3")\
+	.to(wallet.get_address())\
 	.step_limit(100000000)\
 	.data("0x" + tx_message)\
 	.nid(1)\
