@@ -7,4 +7,6 @@ ICON HTML Timestamp is a Python tool that lets you timetamp the contents of an H
 * [Requests Python library](https://2.python-requests.org/en/master/) should be installed.
 
 ## Usage
-```python3 icon-html-timestamp.py```
+```
+python3 icon-html-timestamp.py
+```
