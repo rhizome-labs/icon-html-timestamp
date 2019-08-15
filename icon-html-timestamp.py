@@ -1,6 +1,6 @@
-#################################
-# ProofOfRecord v0.1 by RHIZOME #
-#################################
+#######################################
+# ICON HTML Timestamp v0.1 by RHIZOME #
+#######################################
 
 import datetime
 import iconsdk
