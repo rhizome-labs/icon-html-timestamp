@@ -46,9 +46,7 @@ html = page.content.decode()
 html_hex = html.encode("utf-8").hex()
 header = "This timestamp of " + str(url) + " was taken at " + str(utc_datetime) + " UTC." + "\n\n"
 header_hex = header.encode("utf-8").hex()
-footer = "\n\nTimestamped with ProofOfRecord v0.1 by RHIZOME - https://bit.ly/2Z4Dd8C"
-footer_hex = footer.encode("utf-8").hex()
-tx_message = header_hex + html_hex + footer_hex
+tx_message = header_hex + html_hex
 
 #Calculate transaction message length
 tx_message_length = len(tx_message)
